@@ -1,24 +1,24 @@
-section .text use32
-  global ..start 
+section .text
+  global _start
 
-..start:
-  push dword mylen
-  push dword mymsg
-  push dword 1
+_start:
 
-  mov eax, 0x4
-  sub esp, 4
-  int 0x80
+  push dword len
+	push dword msg
+	push dword 1
 
-  add esp, 16
+	mov eax,0x4
+	sub esp, 0x4
+	int 0x80
 
-  push dword 0
+	add esp, 0x10
 
-  mov eax, 0x1
-  sub esp, 4
-  int 0x80
+	push dword 0x0
+
+	mov eax, 0x1
+	sub esp, 0x4
+	int 0x80
 
 section .data
-  mymsg db "hello, world", 0xa
-  mylen equ $-mymsg
-
+  msg db "hello, world", 0xA
+	len equ $-msg

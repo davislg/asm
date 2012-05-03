@@ -1,8 +1,8 @@
 win32: hello.obj
-	alink -oPE hello.obj
+	link /subsystem:console /nodefaultlib /entry:start  hello.obj
 
 hello.obj: hello.asm
-	nasm -fobj hello.asm
+	nasm -fwin32 hello.asm
 
 clean:
 	rm *.obj hello.exe
