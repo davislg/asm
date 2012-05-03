@@ -1,7 +1,7 @@
-section .text
-  global mystart
+section .text use32
+  global ..start 
 
-mystart:
+..start:
   push dword mylen
   push dword mymsg
   push dword 1
